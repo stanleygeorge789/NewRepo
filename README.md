@@ -1,0 +1,1 @@
+# 2025 Copyright © ZeroGPT.com
