@@ -119,9 +119,7 @@ A card visual was used to represent count of customers.
 
 # Insights
 
-A single page report was created on Power BI Desktop & it was then published to Power BI Service.
-
-Following inferences can be drawn from the dashboard;
+A single page report was created on Power BI Desktop & it was then published to Power BI Service. Following inferences can be drawn from the dashboard;
 
 ### [1] Total Number of Customers = 129880
 
@@ -201,6 +199,3 @@ Average delay will change if different visual filters will be applied.
 4.2) 30.94 % customers have travel type 'Personal'.
 
         thus, more customers have travel type 'Business'.
-
-
-
