@@ -3,6 +3,8 @@
 ### Dashboard Link : https://app.powerbi.com/groups/me/reports/384d017e-e935-44dc-9e7d-1626c1a36de1/ReportSection
 
 ## Problem Statement
+Analyze airline passenger satisfaction drivers and operational delay impact to identify service improvement priorities and reduce dissatisfaction rate from 57 percent to below 45 percent.
+The airline observed a high neutral or dissatisfied customer segment. Management required a data driven view of service ratings, delay patterns, customer segments, and travel type behavior to prioritize service investments.
 This dashboard helps the airlines understand their customers better. It helps the airlines know if their customers are satisfied with their services. Through different ratings, they get to know their improvement area, & thus they can improve their services by identifying these area. It also lets them know the average delay & departure time, thus since by using this dashboard they have identified this problem, they can further work on factors responsible for these unwanted delays.
 Since, number of neutral/dissatisfied customers (almost 57 %) are more than satisfied customers (around 43 %), thus in all they must work on improving their services. Also since average delay in arrival & departure both is 15 minutes, thus they must try to reduce it.
 
@@ -188,4 +190,5 @@ Average delay will change if different visual filters will be applied.
 4.2) 30.94 % customers have travel type 'Personal'.
 
         thus, more customers have travel type 'Business'.
+
 
