@@ -3,13 +3,8 @@
 ### Dashboard Link : https://app.powerbi.com/groups/me/reports/384d017e-e935-44dc-9e7d-1626c1a36de1/ReportSection
 
 ## Problem Statement
-
 This dashboard helps the airlines understand their customers better. It helps the airlines know if their customers are satisfied with their services. Through different ratings, they get to know their improvement area, & thus they can improve their services by identifying these area. It also lets them know the average delay & departure time, thus since by using this dashboard they have identified this problem, they can further work on factors responsible for these unwanted delays.
-
-Since, number of neutral/dissatisfied customers (almost 57 %) are more than satisfied customers (around 43 %), thus in all they must work on improving their services. 
-
-Also since average delay in arrival & departure both is 15 minutes, thus they must try to reduce it.
-
+Since, number of neutral/dissatisfied customers (almost 57 %) are more than satisfied customers (around 43 %), thus in all they must work on improving their services. Also since average delay in arrival & departure both is 15 minutes, thus they must try to reduce it.
 
 ### Steps followed 
 
@@ -27,7 +22,6 @@ Also since average delay in arrival & departure both is 15 minutes, thus they mu
            Although, by default, while calculating average, blank values are ignored.
 - Step 10 : A bar chart was also added to the report design area representing the number of satisfied & neutral/unsatisfied customers. While creating this visual, field named "Gender" was also added to the Legends bucket, thus number of customers are also seggregated according the gender. 
 - Step 11 : Ratings Visual was used to represent different ratings mentioned below,
-
   (a) Baggage Handling
   (b) Check-in Services
   (c) Cleanliness
@@ -99,21 +93,17 @@ A card visual was used to represent count of customers.
     
  A card visual was used to represent this total distance.
  
- 
  ![Snap_3](https://user-images.githubusercontent.com/102996550/174091618-bf770d6c-34c6-44d4-9f5e-49583a6d5f68.jpg)
  
  - Step 18 : The report was then published to Power BI Service.
- 
  
 ![Publish_Message](https://user-images.githubusercontent.com/102996550/174094520-3a845196-97e6-4d44-8760-34a64abc3e77.jpg)
 
 # Snapshot of Dashboard (Power BI Service)
 
 ![dashboard_snapo](https://user-images.githubusercontent.com/102996550/174096257-11f1aae5-203d-44fc-bfca-25d37faf3237.jpg)
-
  
  # Report Snapshot (Power BI DESKTOP)
-
  
 ![Dashboard_upload](https://user-images.githubusercontent.com/102996550/174074051-4f08287a-0568-4fdf-8ac9-6762e0d8fa94.jpg)
 
@@ -130,7 +120,6 @@ A single page report was created on Power BI Desktop & it was then published to 
    Number of neutral/unsatisfied customers (Male) = 35822 (27.58 %)
 
    Number of neutral/unsatisfied customers (Female) = 37630 (28.97 %)
-
 
            thus, higher number of customers are neutral/unsatisfied.
            
@@ -199,3 +188,4 @@ Average delay will change if different visual filters will be applied.
 4.2) 30.94 % customers have travel type 'Personal'.
 
         thus, more customers have travel type 'Business'.
+
