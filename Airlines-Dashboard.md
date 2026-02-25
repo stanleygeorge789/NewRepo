@@ -29,29 +29,17 @@ Also since average delay in arrival & departure both is 15 minutes, thus they mu
 - Step 11 : Ratings Visual was used to represent different ratings mentioned below,
 
   (a) Baggage Handling
-
   (b) Check-in Services
-  
   (c) Cleanliness
-  
   (d) Ease of online booking
-  
   (e) Food & Drink
-  
   (f) In-flight Entertainment
-
   (g) In-flight Service
-  
   (h) In-flight wifi service
-  
   (i) Leg Room service
-  
   (j) On-board service
-  
   (k) Online boarding
-  
   (l) Seat comfort
-  
   (m) Departure & arrival time convenience
   
 In our dataset, Some parameters were assigned value 0, representing those parameters are not applicable for some customers.
@@ -213,4 +201,5 @@ Average delay will change if different visual filters will be applied.
 4.2) 30.94 % customers have travel type 'Personal'.
 
         thus, more customers have travel type 'Business'.
+
 
