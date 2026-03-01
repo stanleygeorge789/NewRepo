@@ -2,8 +2,6 @@
 
 ## 1. Executive Overview
 
-This project implements a structured Exploratory Data Analysis workflow on a multi-entity Excel dataset containing transactional and master data.
-
 The objective was to transform fragmented operational records into a validated, relational, business-constrained analytical dataset suitable for KPI tracking, dashboard development, and downstream statistical modeling.
 
 The approach prioritizes:
