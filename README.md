@@ -1,180 +1,138 @@
 # EDA Project – End-to-End Exploratory Data Analysis
 
-## Project Overview
+## Executive Summary
 
-This project demonstrates a structured, business-aligned Exploratory Data Analysis (EDA) workflow.
+This project demonstrates a production-style Exploratory Data Analysis workflow applied to a multi-entity Excel dataset.
 
-The objective is not just to “analyze data,” but to transform raw, multi-sheet Excel data into a clean, validated, analysis-ready dataset that supports downstream reporting and decision-making.
+The objective was to convert fragmented operational data into a clean, relational, business-constrained analytical dataset suitable for reporting, dashboarding, and modeling.
 
-The project follows a disciplined approach:
-
-- Context framing  
-- Data ingestion  
-- Profiling and validation  
-- Data modeling  
-- Cleanup and standardization  
-- Business rule enforcement  
-- Final dataset handoff  
+The workflow emphasizes data integrity, business alignment, and structural correctness over superficial visualization.
 
 ---
 
-## 1. EDA Context and Framing (00:00 – 05:40)
+## Business Objective
 
-### 1.1 EDA Introduction and Project Context
-- Defined the scope of analysis  
-- Identified key stakeholders and decision drivers  
-- Clarified expected business outcomes  
-- Positioned the project for portfolio and production relevance  
+The analysis was designed to support:
 
-### 1.2 Problem Statement and Business Objective
-- Framed the analytical objective in measurable terms  
-- Identified revenue, profitability, and regional performance as core focus areas  
-- Established clarity on how insights will drive business decisions  
+- Revenue performance evaluation  
+- Profitability tracking  
+- Regional performance comparison  
+- Budget vs actual alignment  
 
-This ensures the analysis is business-driven, not tool-driven.
+The final dataset enables downstream decision-making in reporting tools such as Power BI or statistical modeling environments.
 
 ---
 
-## 2. Environment Setup and Data Loading (05:40 – 11:20)
+## Data Scope
 
-### 2.1 Environment Setup
-- Python environment configured  
-- Core libraries initialized (pandas, numpy, matplotlib, etc.)  
-- Structured project workflow  
+Source: Multi-sheet Excel workbook containing independent entities:
 
-### 2.2 Loading Multi-Sheet Excel Dataset
-- Imported Excel workbook  
-- Inspected available sheets  
-- Validated structural consistency across sheets  
-- Verified schema alignment  
+- Sales transactions  
+- Customer master data  
+- Product catalog  
+- Regional mapping  
+- State-level information  
+- Budget allocation data  
 
-Goal: Convert fragmented Excel structure into structured DataFrames.
+The sheets were structurally independent and required modeling before analysis.
 
 ---
 
-## 3. Initial Data Profiling (11:20 – 21:30)
+## Methodology
 
-### 3.1 Assigning Sheets to DataFrames
-- Separated sheets into logical entities  
-  - Sales  
-  - Customers  
-  - Products  
-  - Regions  
-  - States  
+### 1. Context Framing
 
-### 3.2 Structural Validation
-- Corrected header inconsistencies  
-- Standardized column alignment  
-- Checked data types  
-- Performed early sanity checks  
+- Defined analytical scope and constraints  
+- Identified decision metrics  
+- Aligned technical workflow with business intent  
 
-### 3.3 Data Quality Assessment
-- Null value analysis  
-- Missing data patterns  
-- Duplicate detection  
-- Early anomaly identification  
-
-This phase ensures analytical reliability before modeling.
+This prevented tool-driven exploration and ensured measurable outcomes.
 
 ---
 
-## 4. Data Modeling and Integration (21:30 – 30:10)
+### 2. Data Ingestion and Structural Validation
 
-### 4.1 Data Merging Strategy
+- Imported all sheets into pandas DataFrames  
+- Inspected schemas and structural inconsistencies  
+- Corrected header issues and formatting errors  
+- Standardized data types  
+
+Objective: Establish structural reliability before transformation.
+
+---
+
+### 3. Data Profiling and Quality Assessment
+
+- Performed null value analysis  
+- Evaluated duplicate records  
+- Conducted early anomaly detection  
+- Validated row-level integrity  
+
+This phase reduced risk of downstream metric distortion.
+
+---
+
+### 4. Data Modeling and Integration
+
 - Identified primary and foreign keys  
-- Defined entity relationships  
-- Established merge hierarchy  
+- Defined relational structure  
+- Executed staged merges across entities  
+- Verified referential integrity post-merge  
+- Validated row counts and join accuracy  
 
-### 4.2 Entity Integration
-Merged:
-- Sales  
-- Customers  
-- Products  
-- Regions  
-- States  
-
-Validated:
-- Join integrity  
-- Row counts before and after merge  
-- Referential consistency  
-
-Outcome: Unified analytical dataset.
+Outcome: Unified relational analytical dataset.
 
 ---
 
-## 5. Data Cleanup and Standardization (30:10 – 40:30)
+### 5. Cleanup and Feature Optimization
 
-### 5.1 Redundant Column Removal
-- Identified duplicate attributes  
-- Removed non-contributing fields  
-- Reduced dataset dimensionality  
+- Removed redundant attributes  
+- Standardized naming conventions  
+- Reduced dimensional noise  
+- Retained domain-relevant variables only  
 
-### 5.2 Naming Conventions
-- Standardized column names  
-- Applied consistent casing  
-- Removed ambiguity  
-
-### 5.3 Domain-Driven Feature Selection
-- Retained only business-relevant fields  
-- Eliminated noise variables  
-- Ensured alignment with analysis objectives  
-
-Result: Lean, structured dataset aligned with business questions.
+This improved analytical clarity and performance efficiency.
 
 ---
 
-## 6. Business Constraints and Final Dataset (40:30 – 45:40)
+### 6. Business Rule Enforcement
 
-### 6.1 Budget Merge and Constraints
 - Integrated budget data  
-- Applied year-level filters  
-- Enforced business rules  
+- Applied year constraints  
+- Filtered dataset to 2017 records  
+- Revalidated metric completeness  
 
-### 6.2 Dataset Finalization
-- Filtered records for 2017  
-- Confirmed row consistency  
-- Validated metric completeness  
-
-Outcome: Analysis-ready dataset with business-constrained scope.
+The final dataset strictly reflects business-defined scope.
 
 ---
 
-## 7. EDA Handoff (45:40 – 47:20)
+## Final Output
 
-- Final data validation  
-- Schema confirmation  
-- Readiness check for visualization or modeling  
-- Clean transition to reporting phase  
+A validated, analysis-ready dataset prepared for:
+
+- Power BI dashboard development  
+- KPI performance tracking  
+- Statistical modeling  
+- Forecasting workflows  
 
 ---
 
-## Tools Used
+## Technical Stack
 
 - Python  
 - Pandas  
 - NumPy  
 - Excel  
-- Matplotlib (for validation visuals)  
+- Matplotlib  
 
 ---
 
-## Key Skills Demonstrated
+## Competencies Demonstrated
 
-- Business problem framing  
+- Business-driven analytics  
 - Data profiling and validation  
-- Multi-table data modeling  
-- Data quality assessment  
-- Feature engineering  
-- Dataset standardization  
-- Business-rule enforcement  
-
----
-
-## Final Deliverable
-
-A cleaned, validated, business-aligned dataset ready for:
-
-- Power BI dashboarding  
-- Statistical analysis  
-- Predictive modeling  
-- Executive reporting  
+- Relational data modeling  
+- Join strategy and integrity verification  
+- Data quality governance  
+- Feature engineering discipline  
+- Business constraint implementation  
