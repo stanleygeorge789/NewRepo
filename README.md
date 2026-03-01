@@ -1,233 +1,253 @@
 # EDA Project – End-to-End Exploratory Data Analysis
 
-## 1. Executive Summary
+## 1. Executive Overview
 
-This project demonstrates a production-oriented Exploratory Data Analysis workflow applied to a multi-entity Excel dataset containing transactional and master data.
+This project implements a structured Exploratory Data Analysis workflow on a multi-entity Excel dataset containing transactional and master data.
 
-The objective was to transform fragmented, loosely structured operational data into a validated, relational, business-constrained analytical dataset suitable for dashboarding, KPI monitoring, and advanced modeling.
+The objective was to transform fragmented operational records into a validated, relational, business-constrained analytical dataset suitable for KPI tracking, dashboard development, and downstream statistical modeling.
 
-The emphasis of this project is on:
+The approach prioritizes:
 
-- Data integrity
-- Relational modeling
+- Structural correctness
+- Referential integrity
+- Data quality governance
 - Business rule enforcement
-- Analytical readiness
+- Analytical readiness validation
 
-This is not visualization-first analysis. It is structure-first analytics.
-
----
-
-## 2. Business Context and Analytical Objective
-
-The dataset represents operational sales data enriched with customer, product, geographic, and budget information.
-
-Primary analytical goals:
-
-- Evaluate revenue and profitability performance
-- Compare regional performance
-- Align actual performance against budget
-- Enable year-specific performance tracking (2017 focus)
-
-Key business questions addressed:
-
-- Which regions drive the highest revenue and profit?
-- How do product categories contribute to total margin?
-- Where do actuals deviate from budget?
-- Are there structural data quality issues that distort KPIs?
+This project reflects production-style dataset preparation rather than exploratory visualization.
 
 ---
 
-## 3. Data Sources and Structure
+## 2. Business Context
 
-### 3.1 Source Format
+The dataset represents commercial sales operations enriched with:
+
+- Customer master information  
+- Product master attributes  
+- Geographic hierarchy (Region, State)  
+- Annual budget allocations  
+
+The business required a unified dataset to:
+
+- Measure revenue and profit performance
+- Compare regional contribution
+- Analyze product-level profitability
+- Evaluate budget vs actual variance
+- Isolate performance for reporting year 2017
+
+The primary challenge was structural fragmentation across multiple sheets with no enforced relational schema.
+
+---
+
+## 3. Data Architecture
+
+### 3.1 Source Structure
 
 Multi-sheet Excel workbook containing:
 
-- Sales transactions
-- Customer master
-- Product master
-- Regional mapping
-- State mapping
-- Budget data
+1. Sales (transactional fact table)
+2. Customers (dimension)
+3. Products (dimension)
+4. Regions (dimension)
+5. States (dimension)
+6. Budget (fact table at yearly aggregation)
 
-Each sheet was structurally independent and required relational modeling before meaningful analysis.
+The Sales sheet serves as the central transactional entity.
 
-### 3.2 Initial Challenges Identified
+### 3.2 Data Modeling Strategy
 
-- Inconsistent headers
-- Mixed data types
-- Redundant columns across entities
-- Potential null-heavy attributes
-- Absence of enforced relational integrity
+Target design:
 
----
+Fact Table:
+- Sales transactions enriched with customer, product, and geography attributes
 
-## 4. Methodology
+Dimension Tables:
+- Customer
+- Product
+- Region
+- State
 
-### 4.1 Environment Setup
+Supporting Fact:
+- Budget integrated at year-level granularity
 
-Environment configured using:
-
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-
-Structured workflow followed:
-
-1. Load
-2. Inspect
-3. Profile
-4. Clean
-5. Model
-6. Validate
-7. Constrain
+Goal: Flatten into a single denormalized analytical dataset while preserving referential consistency.
 
 ---
 
-### 4.2 Data Ingestion
+## 4. Implementation Methodology
 
-- Imported workbook using pandas
+### Phase 1: Data Ingestion
+
+- Loaded Excel workbook using pandas
 - Enumerated sheet names
-- Assigned sheets to logical DataFrames
-- Inspected schema consistency
-- Verified column naming and structural alignment
+- Loaded each sheet into independent DataFrames
+- Verified row counts for ingestion accuracy
+- Checked column uniqueness within each sheet
 
-Focus: Prevent silent structural corruption.
-
----
-
-### 4.3 Structural Validation
-
-Performed:
-
-- Header normalization
-- Column trimming and formatting
-- Data type correction
-- Date parsing validation
-- Numeric coercion where required
-
-This ensured type consistency for joins and aggregations.
+Control Objective:
+Ensure no structural corruption during import.
 
 ---
 
-### 4.4 Data Profiling and Quality Assessment
+### Phase 2: Schema Normalization
 
-Conducted systematic profiling:
+Performed systematic standardization:
 
-- Null value distribution analysis
-- Duplicate record detection
-- Cardinality inspection
-- Outlier surface checks
-- Row-level consistency validation
+- Trimmed whitespace in column headers
+- Converted column names to consistent case format
+- Removed special characters
+- Standardized date formats
+- Enforced numeric types for revenue, cost, and quantity fields
+- Ensured categorical fields were correctly cast
 
-Identified and resolved:
-
-- Missing key values
-- Structural inconsistencies
-- Non-business-relevant fields
-
-Objective: Eliminate analytical distortion before modeling.
+Validation:
+- Confirmed dtype alignment
+- Ensured no object-type numeric leakage
 
 ---
 
-### 4.5 Relational Modeling and Entity Integration
+### Phase 3: Data Profiling
 
-Defined relational architecture:
+Profiling included:
 
-- Identified primary keys in dimension tables
-- Validated foreign keys in transaction table
-- Established merge hierarchy
+1. Null Value Analysis  
+   - Calculated null percentage per column  
+   - Identified mandatory key fields  
+   - Assessed impact of null-heavy attributes  
 
-Merge sequence:
+2. Duplicate Detection  
+   - Checked full-row duplicates  
+   - Verified uniqueness of primary keys in dimension tables  
 
-1. Sales + Customers
-2. Sales + Products
-3. Sales + Region
-4. Sales + State
-5. Sales + Budget
+3. Cardinality Assessment  
+   - Evaluated distinct counts  
+   - Verified foreign key distributions  
 
-Validation performed after each merge:
+4. Range and Consistency Checks  
+   - Validated revenue and profit ranges  
+   - Ensured no negative quantities where business logic disallowed  
 
-- Row count comparison
-- Join type evaluation
-- Null propagation analysis
-- Referential integrity checks
-
-Outcome: Single unified analytical dataset with relational coherence.
-
----
-
-### 4.6 Cleanup and Feature Optimization
-
-Performed dimensional refinement:
-
-- Removed duplicate attributes from joins
-- Eliminated redundant columns
-- Applied consistent naming conventions
-- Reduced dimensional noise
-- Retained only business-aligned variables
-
-This reduced analytical complexity and improved clarity.
+Objective:
+Eliminate structural and logical inconsistencies before modeling.
 
 ---
 
-### 4.7 Business Constraint Enforcement
+### Phase 4: Relational Integration
 
-Applied business logic constraints:
+Merge strategy followed controlled sequence:
 
-- Integrated annual budget data
-- Filtered dataset to 2017
-- Validated metric completeness post-filter
-- Rechecked row-level integrity
+1. Sales joined with Customers on Customer_ID  
+2. Sales joined with Products on Product_ID  
+3. Sales joined with State on State_ID  
+4. State joined with Region  
+5. Budget merged based on Year and relevant dimensions  
 
-Ensured final dataset aligns strictly with defined reporting scope.
+After each merge:
+
+- Compared pre- and post-merge row counts  
+- Verified no unintended row expansion  
+- Assessed null propagation in join columns  
+- Confirmed referential match completeness  
+
+Join Types:
+- Primarily left joins to preserve transactional integrity  
+
+Outcome:
+Unified analytical dataset with enriched dimensional context.
 
 ---
 
-## 5. Validation and Readiness Checks
+### Phase 5: Dimensional Refinement
 
-Final verification included:
+Post-merge cleanup included:
 
-- Aggregate revenue cross-check
-- Profit recalculation validation
-- Record count confirmation
-- Schema final review
+- Removal of duplicate key columns
+- Elimination of intermediate join attributes
+- Consolidation of redundant descriptors
+- Column renaming for clarity
+- Reordering fields for analytical usability
 
-The dataset was confirmed ready for:
+Feature Optimization:
+- Retained revenue, cost, quantity, margin, geography, product category, and customer segment
+- Removed low-signal or redundant metadata columns
 
-- Power BI reporting
+Result:
+Reduced dimensional noise and improved interpretability.
+
+---
+
+### Phase 6: Business Rule Enforcement
+
+Applied explicit constraints:
+
+- Filtered dataset to reporting year 2017
+- Validated revenue totals before and after filtering
+- Recalculated derived metrics (Profit = Revenue − Cost)
+- Cross-checked budget alignment for completeness
+
+Ensured:
+- No metric distortion post-filter
+- Aggregates matched expected totals
+
+---
+
+## 5. Final Dataset Characteristics
+
+The final dataset:
+
+- Is fully denormalized
+- Contains only validated business-relevant attributes
+- Has enforced referential integrity
+- Is scoped strictly to 2017 reporting year
+- Is free of duplicate primary keys
+- Contains consistent data types across all metrics
+
+This dataset is optimized for:
+
+- Power BI modeling
 - KPI dashboarding
-- Statistical modeling
-- Forecasting workflows
+- Variance analysis
+- Forecasting and regression modeling
+- Executive performance reporting
 
 ---
 
-## 6. Technical Stack
+## 6. Validation Controls Implemented
+
+- Row count reconciliation after each merge
+- Aggregate revenue validation
+- Profit recomputation check
+- Null distribution review post-cleanup
+- Schema consistency verification
+- Dimensional uniqueness checks
+
+This ensures analytical reliability and audit traceability.
+
+---
+
+## 7. Technical Stack
 
 - Python
 - Pandas
 - NumPy
 - Excel
-- Matplotlib
+- Matplotlib (profiling validation)
 
 ---
 
-## 7. Core Competencies Demonstrated
+## 8. Competencies Demonstrated
 
-- Business-aligned analytics design
-- Data profiling discipline
-- Relational data modeling
-- Join strategy and validation
+- Business problem translation into data architecture
+- Structured EDA methodology
+- Multi-entity relational modeling
+- Referential integrity enforcement
 - Data quality governance
-- Feature selection logic
-- Analytical constraint enforcement
-- Production-style dataset preparation
+- Dimensional optimization
+- Business constraint application
+- Production-ready dataset preparation
 
 ---
 
-## 8. Deliverable
+## 9. Deliverable
 
-A clean, validated, relational dataset optimized for analytical consumption and executive reporting.
-
-This dataset supports performance tracking, variance analysis, and region-level strategic decision-making.
+A validated, relational, business-aligned analytical dataset prepared for enterprise-grade reporting and advanced analytics workflows.
