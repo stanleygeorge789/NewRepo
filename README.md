@@ -2,7 +2,7 @@
 
 ## 1. Executive Overview
 
-The objective was to transform fragmented operational records into validated, relational, business-constrained analytical dataset suitable for KPI tracking, dashboard development, and downstream statistical modeling.
+Objective was to transform fragmented operational records into validated, relational, business-constrained analytical dataset suitable for KPI tracking, dashboard development, and downstream statistical modeling.
 
 The approach prioritizes:
 
