@@ -33,7 +33,7 @@ The business required a unified dataset to:
 - Evaluate budget vs actual variance
 - Isolate performance for reporting year 2017
 
-The primary challenge was structural fragmentation across multiple sheets with no enforced relational schema.
+Primary challenge was structural fragmentation across multiple sheets with no enforced relational schema.
 
 ---
 
