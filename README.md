@@ -219,7 +219,7 @@ This dataset is optimized for:
 - Schema consistency verification
 - Dimensional uniqueness checks
 
-This ensures analytical reliability and audit traceability.
+This ensures analytical reliability & audit traceability.
 
 ---
 
