@@ -50,7 +50,7 @@ Multi-sheet Excel workbook containing:
 5. States (dimension)
 6. Budget (fact table at yearly aggregation)
 
-The Sales sheet serves as the central transactional entity.
+Sales sheet serves as the central transactional entity.
 
 ### 3.2 Data Modeling Strategy
 
