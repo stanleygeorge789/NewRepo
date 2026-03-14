@@ -4,7 +4,7 @@
 
 Objective was to transform fragmented operational records into validate, relational, business-constrained analytical dataset suitable for KPI tracking, dashboard development, & downstream statistical modeling.
 
-The approach prioritizes:
+Approach prioritizes:
 
 - Structural correctness
 - Referential integrity
