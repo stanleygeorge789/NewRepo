@@ -6,7 +6,7 @@ Objective was to transform fragmented operational records into validate, relatio
 
 Approach prioritize:
 
-- Structural correctness
+- Structural correct
 - Referential integrity
 - Data quality governance
 - Business rule enforcement
