@@ -12,7 +12,7 @@ Approach prioritize:
 - Business rule enforcement
 - Analytical readiness validation
 
-This project reflects production-style dataset preparation rather than exploratory visualization.
+This project reflect production-style dataset preparation rather than exploratory visualization.
 
 ---
 
