@@ -23,7 +23,7 @@ The dataset represents commercial sales operations enriched with:
 - Customer master information  
 - Product master attributes  
 - Geographic hierarchy (Region, State)  
-- Annual budget allocations  
+- Annual budget allocation
 
 The business required a unified dataset to:
 
