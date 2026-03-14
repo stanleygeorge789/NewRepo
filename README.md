@@ -18,7 +18,7 @@ This project reflects production-style dataset preparation rather than explorato
 
 ## 2. Business Context
 
-The dataset represents commercial sales operations enriched with:
+The dataset represents commercial sale operations enriched with:
 
 - Customer master information  
 - Product master attributes  
